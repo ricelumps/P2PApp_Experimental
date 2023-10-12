@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>P2P 로그인</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style type="text/css">
+	
+	div {
+		display: block;
+		text-align: center;
+	}
+
+	#wrapper {
+		
+		min-width: 360px;
+		max-width: 492px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		margin: 0 auto;
+		
+	}
+	
+	#content {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	
+	#loginBtn {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	
+	.id, .password {
+		padding-top: 10px;
+	}
+	
+	
+</style>
+</head>
+<body>
+
+
+<div id="wrapper">
+	
+	<div id="header">
+		<img alt="로고사진" src="images/camellia.png" style="width: 100%; max-width: 400px;">
+	</div>
+
+	<div id="content">
+		<form action="loginOK" method="post">
+		
+			<fieldset>
+		
+				<div class="id">
+					<input type="text" class="input form-control input-lg" id="id" name="id" placeholder="ID 혹은 이메일(Email)">
+				</div>
+			
+				<div class="password">
+					<input type="text" class="input form-control input-lg" id="password" name="password" placeholder="비밀번호">
+				</div>
+
+			
+				<div id="loginBtn">
+					<button class="btn btn-default btn-block" type="submit" id="loginButton">로그인</button>
+				</div>
+				
+							
+				<p class="loginMenu">
+					<a href="register">회원가입</a>
+					<a href="findid">ID 찾기</a>
+					<a href="findpwd">비밀번호 찾기</a>			
+				</p>
+		
+			</fieldset>
+		</form>
+	</div>
+	
+	
+	
+	
+</div>
+
+
+</body>
+</html>

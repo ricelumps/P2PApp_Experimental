@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>P2P 로그인</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery-3.7.1.js"></script>
+<script type="text/javascript" src="js/register.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style type="text/css">
+
+
+div {
+	display: block;
+	text-align: center;
+}
+
+form {
+	width: 400px;
+}
+
+span {
+	width: min-content;
+}
+
+.form-select {
+	margin-top: 5px;
+}
+
+.form-floating, .input-group {
+	margin-bottom: 1em;
+}
+
+.id, .password {
+	padding-top: 10px;
+	margin-right: -50px;
+	
+
+}#content {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 15px;
+}
+
+#form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#loginBtn {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#wrapper {
+	min-width: 360px;
+	max-width: 600px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin: 0 auto;
+}
+
+
+</style>
+</head>
+<body>
+
+
+<div id="wrapper">
+	
+	<div id="header">
+		<img alt="로고사진" src="images/camellia.png" style="width: 100%; max-width: 400px;">
+	</div>
+
+	<div id="content">
+		<div id="form-container">
+			<form action="registerOK" method="post">
+
+			<div class="form-floating form_item">
+
+				<input type="text" class="form-control" id="id" name="id" placeholder="ID 또는 이메일 입력"/>
+				<label class="form-floating" for="id">ID 또는 이메일</label>
+
+			</div>
+			
+
+			<div class="input-group">
+				<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호">
+					
+				<span class="input-group-text">
+					<i class="pwd fa fa-eye-slash fa-lg" style="color: black; cursor: pointer;"></i>
+				</span>
+			</div>
+
+
+			
+			<div class="input-group">
+				<input type="password" class="form-control" id="pwd-confirm" name="pwd-confirm" placeholder="비밀번호 확인">
+			
+				<span class="input-group-text">
+					<i class="pwd-confirm fa fa-eye-slash fa-lg" style="color:black; cursor: pointer;"></i>
+				</span>
+			</div>
+			
+			<div class="form-floating form_item">
+	
+				<input type="text" class="form-control" id="name" name="name" placeholder="이름 입력">
+				<label class="form-floating" for="name">이름</label>
+	
+			</div>	
+			
+			<div class="form-floating form_item">
+
+				<input type="email" class="form-control" id="email" name="email" placeholder="이메일 입력">						
+				<label class="form-floating" for="name">Email ( Hong@Example.com )</label>
+	
+			</div>
+				
+			<div class="form-floating form_item">
+
+				<input type="tel" class="form-control" id="phone" name="phone" placeholder="휴대전화번호">						
+				<label class="form-floating" for="phone">전화번호</label>
+	
+			</div>	
+<!-- 				<dl>
+					<dt>성별</dt>
+					<dd>	
+						<select class="form-select form-select-lg" id="gender" name="gender">
+							<option value="male">남자</option>
+							<option value="female">여자</option>
+							<option value="third">제3의 성</option>							
+						</select>
+					</dd>
+				</dl> -->
+				
+	
+					<button class="btn btn-info btn-block" type="submit" id="loginButton">회원가입</button>
+					<button class="btn btn-default btn-block" type="button" onclick="return reset();" id="resetButton">새로 입력</button>
+				
+			</form>
+		</div>
+	</div>
+	
+	
+	
+	
+</div>
+
+
+</body>
+</html>
