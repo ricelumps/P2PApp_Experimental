@@ -9,15 +9,5 @@ $(document).ready(function(){
 			$('#password').attr('type',"password");
 		}
 	});
-	
-	$('.pwd-confirm').on('click',function(){
-		$('#pwd-confirm').toggleClass('active');
-		if($('#pwd-confirm').hasClass('active')){
-			$(this).attr('class',"fa fa-eye fa-lg");
-			$('#pwd-confirm').attr('type',"text");
-		}else{
-			$(this).attr('class',"fa fa-eye-slash fa-lg");
-			$('#pwd-confirm').attr('type',"password");
-		}
-	});
+
 });

@@ -32,6 +32,12 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		
+		<!-- html thymeleaf layout 사용 -->
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -87,6 +93,19 @@
 	    	<artifactId>mybatis-spring-boot-starter</artifactId>
 	    	<version>2.1.2</version>
 		</dependency>
+	
+	<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis -->
+	<dependency>
+	    <groupId>org.springframework.session</groupId>
+	    <artifactId>spring-session-data-redis</artifactId>
+	    <version>2.7.3</version>
+	</dependency>
+		
 	
 	</dependencies>
 

@@ -4,10 +4,15 @@
 <meta charset="UTF-8">
 <title>P2P 로그인</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+<script type="text/javascript" src="js/jquery-3.7.1.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <style type="text/css">
+	
+	
 	
 	div {
 		display: block;
@@ -29,12 +34,12 @@
 		margin-bottom: 10px;
 	}
 	
-	#loginBtn {
+	.loginBtn {
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
 	
-	.id, .password {
+	.userID, .password {
 		padding-top: 10px;
 	}
 	
@@ -55,24 +60,29 @@
 		
 			<fieldset>
 		
-				<div class="id">
-					<input type="text" class="input form-control input-lg" id="id" name="id" placeholder="ID 혹은 이메일(Email)">
+				<div class="userID">
+					<input type="text" class="input form-control input-lg" id="userID" name="userID" placeholder="ID 혹은 이메일(Email)">
 				</div>
 			
-				<div class="password">
-					<input type="text" class="input form-control input-lg" id="password" name="password" placeholder="비밀번호">
+				<div class="input-group password">
+					<input type="password" class="input form-control input-lg" id="password" name="password" placeholder="비밀번호">
+					
+					<span class="input-group-text">
+						<i class="pwd fa fa-eye-slash fa-lg" style="color:black; cursor: pointer;"></i>
+					</span>
+				
 				</div>
 
 			
-				<div id="loginBtn">
-					<button class="btn btn-default btn-block" type="submit" id="loginButton">로그인</button>
+				<div class="loginBtn d-grid-gap-2">
+					<button class="btn btn-primary w-100 py-2" type="submit" id="loginButton">로그인</button>
 				</div>
 				
 							
-				<p class="loginMenu">
-					<a href="register">회원가입</a>
-					<a href="findid">ID 찾기</a>
-					<a href="findpwd">비밀번호 찾기</a>			
+				<p class="loginMenu btn-group">
+					<a class="btn btn-outline-dark" href="register" style="outline-style: soild;">회원가입</a>
+					<a class="btn btn-outline-dark" href="findid">ID 찾기</a>
+					<a class="btn btn-outline-dark" href="findpwd">비밀번호 찾기</a>			
 				</p>
 		
 			</fieldset>

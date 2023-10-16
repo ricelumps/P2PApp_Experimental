@@ -11,9 +11,10 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class UserDTO {
+public class RegisterDTO {
 
-	private String id;
+	private String userID;
+	private String password;
 	private String name;
 	private String phone;
 	private String email;

@@ -7,6 +7,6 @@ import com.P2PApp.DTO.LoginDTO;
 @Mapper
 public interface LoginDAO {
 	
-	LoginDTO selectById(String id);
+	LoginDTO selectById(String userID);
 
 }

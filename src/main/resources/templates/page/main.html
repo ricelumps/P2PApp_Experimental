@@ -1,27 +1,21 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/default_Layout}">
-
-<!-- index.html 고유 CSS 추가 -->
+      layout:decorate="~{/layouts/default_Layout}">
+<!-- main.html 고유 CSS 추가 -->
 <th:block layout:fragment="css">
 	<style>
-	<!--
-	
-	-->
 	</style>	
 </th:block>
-<!-- index.html 고유 스크립트 추가 -->
+<!-- main.html 고유 스크립트 추가 -->
 <th:block layout:fragment="script">
 	<script type="text/javascript">
-	<!--
-	
-	//-->
 	</script>
 </th:block>
 <!-- Content -->
-<div layout:fragment="content">
-    <h1>Content</h1>
-</div>
+	<th:block layout:fragment="content">
+	<div>
+		<span th:text=${loginStatus}>status</span>
+	</div>
+	</th:block>
 </html>

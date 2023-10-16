@@ -3,6 +3,7 @@
 
 <mapper namespace="com.P2PApp.DAO.LoginDAO">
 	<select id="selectById" resultType="loginDTO">
-		select * from login where id = #{id}
+		select * from auth.password 
+			where userNo = (select userNo from member.user where userID = #{userID})
 	</select>
 </mapper>

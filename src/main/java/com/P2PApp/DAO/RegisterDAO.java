@@ -3,11 +3,10 @@ package com.P2PApp.DAO;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.P2PApp.DTO.LoginDTO;
-import com.P2PApp.DTO.UserDTO;
 
 @Mapper
-public interface UserDAO {
+public interface RegisterDAO {
 	
-	int insertUserInfo(UserDTO userDTO);
+	int insertUserInfo(String userID);
 	int insertLoginInfo(LoginDTO loginDTO);
 }
