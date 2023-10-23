@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/default_Layout}">
+<!-- main.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+	<style>
+	
+	.inputTitle, .write-body {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	
+	}
+	
+	.title-row {
+	padding-right: 5px;
+	
+	}
+	
+	</style>	
+</th:block>
+<!-- main.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+	<script type="text/javascript">
+
+		function submitFunction() {
+			var str = document.getElementById("text").value;
+			str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+			document.getElementById("text").value = str;
+			document.getElementById("writeOK").submit();
+		};
+	
+	</script>
+</th:block>
+<!-- Content -->
+	<th:block layout:fragment="content">
+		
+		<form action="writeOK" method="post" id="writeOK">
+		
+			<div class="inputTitle input-group">
+				
+				<div class="title-row">
+					<span class="input-group-text">제목</span>
+				</div>
+				
+				<input type="text" class="form-control form-control-sm" name="title" maxlength="256" required="required"/>			
+			</div>
+			
+			
+			<div class="write-body">
+				<textarea class="form-control" name="text" id="text" rows="10" style="resize: none;"></textarea>
+			</div>
+			
+			
+			
+			<div align="right">
+				<button type="button" class="btn btn-secondary btn-submit" onclick="submitFunction();">글쓰기</button>
+			</div>
+			
+		</form>	
+
+		
+		
+	</th:block>
+</html>

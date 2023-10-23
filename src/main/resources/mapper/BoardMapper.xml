@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.P2PApp.DAO.FreeboardDAO">
+	<select id="selectByPage" resultType="FreeboardDTO">
+		SELECT * FROM board.freeboard 
+		ORDER BY boardID DESC 
+		LIMIT #{page}, #{postPerPage};
+	</select>
+	
+	<select id="countPost" resultType="int">
+		SELECT count(*) FROM board.freeboard;
+	</select>
+	
+	<select id="selectById" resultType="FreeboardDTO">
+		SELECT * FROM board.freeboard WHERE boardID = #{boardID}
+	</select>
+	
+	<insert id="insertPost">
+		INSERT INTO board.freeboard (title, text, author) VALUES ( #{title}, #{text}, #{author} )
+	</insert>
+	
+	<delete id="deleteById">
+		DELETE FROM board.freeboard WHERE boardID = #{boardID}
+	</delete>
+	
+</mapper>

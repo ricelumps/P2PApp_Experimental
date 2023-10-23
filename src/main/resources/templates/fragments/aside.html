@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <th:block th:fragment="aside">
-    <nav class="side-container">  
-      <div class="vertical-menu ">                   
-        <button type="button" class="btn btn-success w-100 text-start"><span class="fa fa-home"></span> Home</button>
-        <hr>
-        <a href="/movie/list"><i class="fas fa-arrow-alt-circle-right"></i><span>&nbsp; Movie</span></a>
-        <a href="#"><i class=" fas fa-user-circle"></i><span>&nbsp; User</span></a>       
-      </div>       
-    </nav>
-  </th:block>
+<th:block th:fragment="aside">
+	<nav class="side-container">
+		<div class="vertical-menu">
+			<button type="button" class="btn btn-success w-100 h-100 text-start" onclick="location.href='/index'">
+				<span class="fa fa-home"></span>&nbsp; Home
+			</button>
+			<hr>
+			<a href="/board/Free"><i class="fas fa-arrow-alt-circle-right"></i><span>&nbsp;
+					자유게시판</span></a> 
+			<a href="#"><i class=" fas fa-user-circle"></i><span>&nbsp; User</span></a> 
+			<a class="align-text-bottom" href="#"><i class=" fas fa-user-circle"></i><span>&nbsp; User</span></a>
+
+		</div>
+	</nav>
+</th:block>
 </html>

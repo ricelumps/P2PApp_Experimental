@@ -2,85 +2,114 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-    <meta charset="UTF-8" />
-    <title>thymeleaf layout</title>
-    <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
-    <!-- config fragment 사용 -->
-    <th:block th:replace="fragments/config :: configFragment" ></th:block>
-    
-    <style>
-     .body-container {
-      margin: 0;
-      padding: 0;
-    }
-    .main-container {
-      margin: auto;  
-      margin-left: 160px;
-      max-width: 100%; 
-    }
-    .side-container {
-      height: 100%;
-      width: 160px;
-      position: fixed;
-      z-index: 1;
-      background-color: #212529;
-      overflow-x: hidden;
-      padding-top: 10px;  
-      top: 0;
-      left: 0;
-      margin: 0;
-      padding: 0;
-    }
-    .content-container {	
-      padding: 20px;
-      width: 100%;
-    } 
-    .main-title {
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
-    .portlet { 
-      padding: 10px 20px;
-      width: 100%;
-      border-radius: 5px;
-      background-color: #fff;
-    }
-    .vertical-menu {
-      width: 100%; /* Set a width if you like */
-    }
-    .vertical-menu a {
-      color: white;
-      display: block; /* Make the links appear below each other */
-      padding: 10px;
-      text-decoration: none; /* Remove underline from links */
-    }
-    .vertical-menu a:hover {      
-      color: black;
-      background-color: #ccc;/* Dark grey background on mouse-over */
-    }
-    .tb-success {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    .tb-success td, .tb-success th {
-      border: 1px solid #ddd;
-      padding: 4px;
-    }
-    .tb-success tr:nth-child(even){background-color: #f2f2f2;}
-    .tb-success tr:hover {background-color: #ddd;}
-    .tb-success th {
-      padding-top: 6px;
-      padding-bottom: 6px;
-      text-align: left;
-      background-color: #04AA6D;
-      color: white;
-    }
-    </style>
-    
-</head>
-<body>
-	<div class="body-container">
+<meta charset="UTF-8" />
+<title>thymeleaf layout</title>
+<meta name="viewport"
+	content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
+<!-- config fragment 사용 -->
+<th:block th:replace="fragments/config :: configFragment"></th:block>
+
+<style>
+.body-container {
+	margin: 0;
+	padding: 0;
+}
+
+.main-container {
+	margin: auto;
+	margin-left: 160px;
+	max-width: 100%;
+}
+
+.head-container {
+	margin: auto;
+	margin-left: 160px;
+	max-width: 100%;
+}
+
+.footer-container {
+	margin: auto;
+	margin-left: 160px;
+	max-width: 100%;
+}
+
+
+.side-container {
+	height: 100%;
+	width: 160px;
+	position: fixed;
+	z-index: 1;
+	background-color: #212529;
+	overflow-x: hidden;
+	padding-top: 10px;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.content-container {
+	padding: 20px;
+	width: 100%;
+}
+
+.main-title {
+	font-size: 1.4rem;
+	font-weight: 600;
+}
+
+.portlet {
+	padding: 10px 20px;
+	width: 100%;
+	border-radius: 5px;
+	background-color: #fff;
+}
+
+.vertical-menu {
+	width: 100%; /* Set a width if you like */
+}
+
+.vertical-menu a {
+	color: white;
+	display: block; /* Make the links appear below each other */
+	padding: 10px;
+	text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+	color: black;
+	background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.tb-success {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.tb-success td, .tb-success th {
+	border: 1px solid #ddd;
+	padding: 4px;
+}
+
+.tb-success tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+.tb-success tr:hover {
+	background-color: #ddd;
+}
+
+.tb-success th {
+	padding-top: 6px;
+	padding-bottom: 6px;
+	text-align: left;
+	background-color: #04AA6D;
+	color: white;
+}
+</style>
+
+<body data-bs-theme="dark">
+	<div class="body-container" >
 		
 		<!-- aside fragment 사용 -->
 		<aside th:replace="fragments/aside :: aside"></aside>
@@ -91,10 +120,11 @@
 	    		<div class="content-container">
 	    		<!-- content fragment 사용 -->
 				    <th:block layout:fragment="content"></th:block>
-		    		<!-- footer fragment 사용 -->
-		    		<footer th:replace="fragments/footer :: footerFragment"></footer>
+		    		
    				</div>
    			</div>
+   			<!-- footer fragment 사용 -->
+		    <footer th:replace="fragments/footer :: footerFragment"></footer>
     </div>
 </body>
 </html>

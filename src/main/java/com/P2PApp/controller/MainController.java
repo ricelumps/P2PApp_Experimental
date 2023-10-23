@@ -22,11 +22,13 @@ public class MainController {
 	@RequestMapping("/index")
 	private String index() {
 		
-		if ( session.getAttribute("loginStatus").equals(null) ) {
-			return "redirect:login";
+		if ( session.getAttribute("loginStatus") != null ) {
+			return "page/main";
+			
+		} else {
+			return "redirect:/";
 		}
 		
-		return "page/main";
 	}
 	
 	@RequestMapping("/redisTest")

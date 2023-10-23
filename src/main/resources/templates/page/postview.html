@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/default_Layout}">
+<!-- main.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+	<style>
+	
+		.ti
+	
+	</style>	
+</th:block>
+<!-- main.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+	<script type="text/javascript">
+	
+	window.onload=function() {
+		var str = document.getElementById("textarea").innerText;
+		console.log(str);
+		str = str.replaceAll("<br/>", "\r\n");
+		document.getElementById("textarea").innerHTML = str;
+	}
+	</script>
+</th:block>
+<!-- Content -->
+	<th:block layout:fragment="content">
+		
+		<form action="/deleteOK" name="deleteOK" method="post">
+			<div class="title-row">
+				<p name="title" th:text="${post.title}"></p>
+				<p name="boardID" th:text="${post.boardID}"></p>
+				<input type="hidden" name="boardID" th:value="${post.boardID}"></input>
+			</div>
+			
+			<div class="text-row">
+				<p id="textarea" th:text="${post.text}"></p>
+			</div>
+	
+			<a class="btn btn-danger" type="submit" href="javascript:deleteOK.submit();">삭제</a>
+		</form>
+		
+	</th:block>
+</html>

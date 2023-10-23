@@ -12,6 +12,7 @@
 			values ( (select userNo from member.user where userID = #{userID}), #{salt}, #{password} )
 	</insert>
 	
+
 	
 	
 </mapper>

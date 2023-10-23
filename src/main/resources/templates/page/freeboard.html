@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/default_Layout}">
+<!-- main.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+	<style>
+	
+	td, th, tr {
+	}
+	
+	</style>	
+</th:block>
+<!-- main.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+	<script type="text/javascript">
+	</script>
+</th:block>
+<!-- Content -->
+	<th:block layout:fragment="content">
+		<div align="center">
+			<table class="table">
+				<thead>
+					<tr align="center">
+						<th scope="col" style="width: 10%;">번호</th>
+						<th scope="col" style="width: 20%;">작성자</th>
+						<th scope="col" style="width: 30%;">제목</th>
+						<th scope="col" style="width: 20%;">작성일</th>
+						<th scope="col" style="width: 10%;">조회수</th>
+						<th scope="col" style="width: 10%;">추천</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="list : ${FreeAssets}" align="center">
+							<th th:text="${list.boardID}" >number</th>
+							<td th:text="${list.author}">author</td>
+							<td style="cursor: pointer;" th:text="${list.title}" th:onclick="|location.href='@{/board/Free/{boardID} (boardID=${list.boardID})}'|">title</td>
+							<td th:text="${list.date}">date</td>
+							<td th:text="${list.viewCount}">viewCount</td>
+							<td th:text="${list.heart}">heart</td>						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div align="right">
+			<a class="btn btn-secondary" href="/board/Free/write">글쓰기</a>
+		</div>
+		
+		<div>
+			<nav aria-label="Page navigation example">			
+				<ul class="pagination justify-content-center">
+					<li class="page-item">
+						<a class="page-link" th:href="@{/board/Free?Page={prevPage} (prevPage=${PrevPage})}">이전 페이지</a>
+					</li>
+					
+					<li class="page-item" th:each="num : ${#numbers.sequence(freeboardList.getStartPage(),freeboardList.getEndPage())}">
+						<a class="page-link" th:text="${num}" th:href="@{/board/Free?Page={num} (num=${num})}"></a>
+					</li>
+					
+					<li class="page-item">
+						<a class="page-link" th:href="@{/board/Free?Page={nextPage} (nextPage=${NextPage})}">다음 페이지</a>
+					</li>
+					
+				</ul>
+			</nav>
+		</div>	
+		
+		
+	</th:block>
+</html>
