@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/default_Layout}">
+<!-- main.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+	<style>
+	
+	.inputTitle, .write-body {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	
+	}
+	
+	.title-row {
+	padding-right: 5px;
+	
+	}
+	
+	</style>	
+</th:block>
+<!-- main.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+	<script type="text/javascript">
+
+		window.onload=function() {
+			var str = document.getElementById("text").value;
+			console.log(str);
+			str = str.replaceAll("<br>", "\r\n");
+			document.getElementById("text").value = str;
+		}
+	
+		function submitFunction() {
+			var str = document.getElementById("text").value;
+			str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+			document.getElementById("text").value = str;
+			document.getElementById("updateOK").submit();
+		};
+	
+	</script>
+</th:block>
+<!-- Content -->
+	<th:block layout:fragment="content">
+		
+		<h2>수정</h2>
+		
+		<form action="/updateOK" method="post" id="updateOK">
+		
+			<div class="inputTitle input-group">
+				
+				<div class="title-row">
+					<span class="input-group-text">제목</span>
+				</div>
+				
+				<input name="title" type="text"  th:value="${DTO.title}" class="form-control form-control-sm" maxlength="256" required="required"/>			
+			</div>
+			
+			
+			<div class="write-body">
+				<textarea class="form-control" name="text" id="text" th:text="${DTO.text}" rows="10" style="resize: none;"></textarea>
+			</div>
+			
+			
+			
+			<div align="right">
+				<input type="hidden" name="boardID" th:value="${DTO.boardID}"/>
+				<button type="button" class="btn btn-secondary btn-submit" onclick="submitFunction();">글쓰기</button>
+				
+			</div>
+			
+		</form>	
+
+		
+		
+	</th:block>
+</html>

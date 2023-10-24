@@ -14,4 +14,5 @@ public interface FreeboardDAO {
 	int countPost();
 	int insertPost(FreeboardDTO freeboardDTO);
 	int deleteById(int boardID);
+	int updatePost(FreeboardDTO freeboardDTO);
 }

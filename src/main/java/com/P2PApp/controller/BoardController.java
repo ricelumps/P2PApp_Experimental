@@ -109,7 +109,7 @@ public class BoardController {
 	}
 	
 	@PostMapping("/deleteOK")
-	private String deletePost(int boardID) {
+	private String deleteOK(int boardID) {
 		
 		log.info("boardID : {} ", boardID);
 		FreeboardDAO boardMapper = sqlsession.getMapper(FreeboardDAO.class);
@@ -119,6 +119,28 @@ public class BoardController {
 		return "redirect:/board/Free";
 	}
 	
-
+	@GetMapping("/board/Free/edit/{boardID}")
+	private String editPost(Model model, @PathVariable int boardID) {
+		
+		FreeboardDAO boardMapper = sqlsession.getMapper(FreeboardDAO.class);
+		FreeboardDTO DTO = boardMapper.selectById(boardID);
+		
+		model.addAttribute("DTO",DTO);
+		
+		return "/page/postupdate";
+	}
+	
+	
+	@PostMapping("/updateOK")
+	private String updateOK(FreeboardDTO freeboardDTO) {
+		log.info("DTO : {}", freeboardDTO);
+		
+		FreeboardDAO boardMapper = sqlsession.getMapper(FreeboardDAO.class);
+		int flag = boardMapper.updatePost(freeboardDTO);
+		log.info("update flag : {}", flag);
+		
+		return "redirect:/board/Free/" + freeboardDTO.getBoardID();
+	}
+	
 	
 }

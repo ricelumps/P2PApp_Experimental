@@ -24,4 +24,8 @@
 		DELETE FROM board.freeboard WHERE boardID = #{boardID}
 	</delete>
 	
+	<update id="updatePost">
+		UPDATE board.freeboard SET title = #{title}, text = #{text} where boardID = #{boardID}
+	</update>
+	
 </mapper>
