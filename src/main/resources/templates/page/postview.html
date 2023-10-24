@@ -6,7 +6,7 @@
 <th:block layout:fragment="css">
 	<style>
 	
-		.ti
+		
 	
 	</style>	
 </th:block>
@@ -25,7 +25,9 @@
 <!-- Content -->
 	<th:block layout:fragment="content">
 		
-		<h2>글보기</h2>
+		<div class="border border-1">
+			<h2>글보기</h2>
+		</div>
 		
 		<form action="/deleteOK" name="deleteOK" method="post">
 			<div class="title-row">
@@ -37,9 +39,11 @@
 			<div class="text-row">
 				<p id="textarea" th:text="${post.text}"></p>
 			</div>
-	
-			<a class="btn btn-danger" type="submit" href="javascript:deleteOK.submit();">삭제</a>
-			<a class="btn btn-primary" type="button" th:href="@{/board/Free/edit/{boardID} (boardID=${post.boardID})}">수정</a>
+			
+			<div align="right">
+				<a class="btn btn-danger" type="submit" href="javascript:deleteOK.submit();">삭제</a>
+				<a class="btn btn-primary" type="button" th:href="@{/board/Free/edit/{boardID} (boardID=${post.boardID})}">수정</a>
+			</div>
 			
 		</form>
 		

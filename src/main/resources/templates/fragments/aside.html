@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<th:block layout:fragment="script">
+	<script>	
+	</script>
+</th:block>
+
 <th:block th:fragment="aside">
 	<nav class="side-container">
 		<div class="vertical-menu">
@@ -10,8 +17,9 @@
 			<a href="/board/Free"><i class="fas fa-arrow-alt-circle-right"></i><span>&nbsp;
 					자유게시판</span></a> 
 			<a href="#"><i class=" fas fa-user-circle"></i><span>&nbsp; User</span></a> 
-			<a class="align-text-bottom" href="#"><i class=" fas fa-user-circle"></i><span>&nbsp; User</span></a>
-
+			<a class="align-text-bottom" onclick="changeTheme();"><span>&nbsp; 테마 변경</span></a>
+			
+			
 		</div>
 	</nav>
 </th:block>

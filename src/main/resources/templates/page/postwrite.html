@@ -7,14 +7,15 @@
 	<style>
 	
 	.inputTitle, .write-body {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	
+	padding: 10px;
 	}
 	
 	.title-row {
 	padding-right: 5px;
 	
+	}
+	
+	div {
 	}
 	
 	</style>	
@@ -24,8 +25,11 @@
 	<script type="text/javascript">
 
 		function submitFunction() {
+			console.log(str);
 			var str = document.getElementById("text").value;
+			str = str.replace(/(<([^>]+)>)/ig, '');
 			str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
+			
 			document.getElementById("text").value = str;
 			document.getElementById("writeOK").submit();
 		};
@@ -54,7 +58,7 @@
 			
 			
 			<div align="right">
-				<button type="button" class="btn btn-secondary btn-submit" onclick="submitFunction();">글쓰기</button>
+				<button style="margin: 1%;" type="button" class="btn btn-secondary btn-submit" onclick="submitFunction();">글쓰기</button>
 			</div>
 			
 		</form>	

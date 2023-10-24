@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko"
+	  data-bs-theme="dark"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <meta charset="UTF-8" />
-<title>thymeleaf layout</title>
+<title>P2P App</title>
 <meta name="viewport"
 	content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
 <!-- config fragment 사용 -->
@@ -49,8 +50,7 @@
 }
 
 .content-container {
-	padding: 20px;
-	width: 100%;
+	width: 98%;
 }
 
 .main-title {
@@ -108,8 +108,8 @@
 }
 </style>
 
-<body data-bs-theme="dark">
-	<div class="body-container" >
+<body class="theme">
+	<div class="body-container">
 		
 		<!-- aside fragment 사용 -->
 		<aside th:replace="fragments/aside :: aside"></aside>
@@ -117,7 +117,7 @@
     	<!-- header fragment 사용 -->
 	    <th:block th:replace="fragments/header :: headerFragment"></th:block>
 	    	<div class="main-container">
-	    		<div class="content-container">
+	    		<div class="content-container border border-1">
 	    		<!-- content fragment 사용 -->
 				    <th:block layout:fragment="content"></th:block>
 		    		

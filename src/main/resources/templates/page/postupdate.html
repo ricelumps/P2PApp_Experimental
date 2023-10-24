@@ -32,17 +32,17 @@
 	
 		function submitFunction() {
 			var str = document.getElementById("text").value;
+			str = str.replace(/(<([^>]+)>)/ig, '');
 			str = str.replace(/(?:\r\n|\r|\n)/g, '<br>');
 			document.getElementById("text").value = str;
 			document.getElementById("updateOK").submit();
 		};
-	
 	</script>
 </th:block>
 <!-- Content -->
 	<th:block layout:fragment="content">
 		
-		<h2>수정</h2>
+		<h2 class="text-left">수정</h2>
 		
 		<form action="/updateOK" method="post" id="updateOK">
 		
@@ -73,4 +73,4 @@
 		
 		
 	</th:block>
-</html>
+</html> 

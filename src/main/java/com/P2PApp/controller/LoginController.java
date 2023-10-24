@@ -73,4 +73,13 @@ public class LoginController {
 	public String registerForm() {
 		return "page/register";
 	}
+	
+	@GetMapping("/logout")
+	public String logout() {
+		
+		session.invalidate();
+		
+		return "redirect:/";
+	}
+	
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+				xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <meta charset="UTF-8">
 <!--headerFragment 선언-->
 <th:block th:fragment="headerFragment">
@@ -35,10 +36,10 @@
 					<ul class="dropdown-menu text-small"
 						aria-labelledby="dropdownUser1">
 						<li><a class="dropdown-item" href="#">New project...</a></li>
-						<li><a class="dropdown-item" href="#">Settings</a></li>
-						<li><a class="dropdown-item" href="#">Profile</a></li>
+						<li><a class="dropdown-item" href="#">설정</a></li>
+						<li><a class="dropdown-item" href="#">프로필</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">Sign out</a></li>
+						<li><a class="dropdown-item" href="/logout">로그아웃</a></li>
 					</ul>
 				</div>
 			</div>
