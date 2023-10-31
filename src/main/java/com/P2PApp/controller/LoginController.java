@@ -50,15 +50,20 @@ public class LoginController {
 		
 		LoginDAO mapper = sqlsession.getMapper(LoginDAO.class);
 		
+		// 입력한 ID 값으로 DB를 조회해 salt, password 등등을 가져옴
 		LoginDTO SelectedValue = mapper.selectById(loginDTO.getUserID());
 		
 		log.info("VO : {}", SelectedValue);
 		
+		// 해싱 알고리즘 객체로 불러옴
 		HashingAlgorithm hashingAlgorithm = new HashingAlgorithm();
+		
+		// DB를 조회해 가져온 salt값과 '입력한 password 값'을 합쳐 hash한 Value 가져옴.
 		String HashedPassword = hashingAlgorithm.HashValueWithSalt(SelectedValue.getSalt(),loginDTO.getPassword());
 		
+		// '입력된 Password값(해쉬됨)' 과 DB에 있는 '해시되어있는 password값'을 비교
 		if( SelectedValue.getPassword().equals(HashedPassword) ) {
-			session.setAttribute("loginStatus", loginDTO.getUserID());
+			session.setAttribute("userID", loginDTO.getUserID());
 			
 			return "redirect:index";
 		} else {

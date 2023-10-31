@@ -13,6 +13,7 @@
 <style type="text/css">
 
 
+
 div {
 	display: block;
 	text-align: center;
@@ -66,6 +67,15 @@ span {
 
 
 </style>
+<script type="text/javascript">
+	
+	function submitConfirm() {
+		alert('회원가입에 성공했습니다.');
+		
+	}
+
+</script>
+
 </head>
 <body>
 
@@ -78,7 +88,7 @@ span {
 
 	<div id="content">
 		<div id="form-container">
-			<form action="registerOK" method="post">
+			<form action="registerOK" method="post" onsubmit="submitConfirm();">
 
 			<div class="form-floating form_item">
 
@@ -139,7 +149,26 @@ span {
 				
 	
 					<button class="btn btn-info btn-block" type="submit" id="loginButton">회원가입</button>
-					<button class="btn btn-default btn-block" type="button" onclick="return reset();" id="resetButton">새로 입력</button>
+					<button class="btn btn-default btn-block" type="button" data-bs-toggle="modal" data-bs-target=".reset-Modal" id="resetButton">새로 입력</button>
+				
+				<!-- Confirm Modal -->
+				<div class="reset-Modal modal fade" tabindex="-1" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title">리셋 확인</h5>
+				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				      <div class="modal-body">
+				        <p>정말 새로 입력하시겠습니까?</p>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니오</button>
+				        <button type="button" class="btn btn-primary" onclick="return reset();" data-bs-dismiss="modal">네</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 				
 			</form>
 		</div>

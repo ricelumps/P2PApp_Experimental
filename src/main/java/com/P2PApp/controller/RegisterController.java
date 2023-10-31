@@ -45,7 +45,7 @@ public class RegisterController {
 		
 		log.info("password flag : {} ", loginFlag);
 		
-		return "page/register";
+		return "redirect:/";
 	}
 	
 }

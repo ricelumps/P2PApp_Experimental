@@ -5,9 +5,19 @@
 <!-- main.html 고유 CSS 추가 -->
 <th:block layout:fragment="css">
 	<style>
-	
+		p {
+			margin: 0px;
+			font-size: 1.1em;
+		}
 		
+		.text-row {
+			margin: 1em;
+		}
 	
+		.button-line {
+			margin: 1em;
+		}
+		
 	</style>	
 </th:block>
 <!-- main.html 고유 스크립트 추가 -->
@@ -25,22 +35,26 @@
 <!-- Content -->
 	<th:block layout:fragment="content">
 		
-		<div class="border border-1">
-			<h2>글보기</h2>
+		<div>
+			<h3><p>글보기</p></h3>
 		</div>
 		
 		<form action="/deleteOK" name="deleteOK" method="post">
-			<div class="title-row">
-				<p name="title" th:text="${post.title}"></p>
-				<p name="boardID" th:text="${post.boardID}"></p>
-				<input type="hidden" name="boardID" th:value="${post.boardID}"></input>
+		
+			<div class="title-row border" style="padding: 1%;">
+				<div class="title">
+					<p name="title" th:text="${post.title}"></p>
+				</div>
 			</div>
 			
+			<input type="hidden" name="boardID" th:value="${post.boardID}"></input>
+			
+		
 			<div class="text-row">
 				<p id="textarea" th:text="${post.text}"></p>
 			</div>
 			
-			<div align="right">
+			<div class="button-line" align="right">
 				<a class="btn btn-danger" type="submit" href="javascript:deleteOK.submit();">삭제</a>
 				<a class="btn btn-primary" type="button" th:href="@{/board/Free/edit/{boardID} (boardID=${post.boardID})}">수정</a>
 			</div>

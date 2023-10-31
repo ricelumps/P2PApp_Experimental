@@ -22,7 +22,7 @@ public class MainController {
 	@RequestMapping("/index")
 	private String index() {
 		
-		if ( session.getAttribute("loginStatus") != null ) {
+		if ( session.getAttribute("userID") != null ) {
 			return "page/main";
 			
 		} else {
