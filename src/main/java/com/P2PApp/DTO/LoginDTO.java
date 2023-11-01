@@ -17,5 +17,6 @@ public class LoginDTO {
 	private String userID;
 	private String salt;
 	private String password;
+	private String role;
 	
 }

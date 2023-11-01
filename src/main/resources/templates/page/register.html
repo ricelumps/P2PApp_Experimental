@@ -69,9 +69,55 @@ span {
 </style>
 <script type="text/javascript">
 	
+	
+	
 	function submitConfirm() {
-		alert('회원가입에 성공했습니다.');
 		
+		var userID = document.getElementById('userID');
+		var password = document.getElementById('password');
+		var pwdconfirm = document.getElementById('pwd-confirm');
+		var name = document.getElementById('name');
+		var email = document.getElementById('email');
+		var phone = document.getElementById('phone');
+		
+		if ( userID.value.trim() == "" ) {
+			alert('ID 혹은 Email을 입력해주십시오.');
+			userID.focus();
+			return false;
+		}
+		
+		else if ( password.value.trim() == "" ){
+			alert('비밀번호를 입력해주십시오.');
+			password.focus();
+			return false;
+		}
+		
+		else if ( password.value.trim() != pwdconfirm.value.trim() ){
+			alert('비밀번호와 비밀번호 재입력을 다시 확인해주세요.');
+			password.focus();
+			return false;
+		}
+		
+		else if ( name.value.trim() == "" ) {
+			alert('이름을 입력해주세요.');	
+			return false;
+		}
+		
+		else if ( email.value.trim() == "" ) {
+			alert('이메일을 입력해주세요.');
+			return false;
+		}
+		
+		else if ( phone.value.trim() == "" ) {
+			alert('전화번호를 입력해주세요.');
+			return false;
+		}
+		
+		
+		else {
+			alert('회원가입이 성공했습니다.');
+			return true;
+		}
 	}
 
 </script>
@@ -88,7 +134,7 @@ span {
 
 	<div id="content">
 		<div id="form-container">
-			<form action="registerOK" method="post" onsubmit="submitConfirm();">
+			<form action="registerOK" method="post" onsubmit="return submitConfirm();">
 
 			<div class="form-floating form_item">
 
@@ -126,7 +172,7 @@ span {
 			<div class="form-floating form_item">
 
 				<input type="email" class="form-control" id="email" name="email" placeholder="이메일 입력">						
-				<label class="form-floating" for="name">Email ( Hong@Example.com )</label>
+				<label class="form-floating" for="email">Email ( Hong@Example.com )</label>
 	
 			</div>
 				

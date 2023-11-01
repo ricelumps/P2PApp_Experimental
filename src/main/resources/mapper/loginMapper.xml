@@ -6,4 +6,13 @@
 		select * from auth.password 
 			where userNo = (select userNo from member.user where userID = #{userID})
 	</select>
+	
+	<select id="selectByUsername" resultType="loginDTO">
+		SELECT userID, salt, password, ROLE 
+		FROM auth.password, MEMBER.user 
+		WHERE auth.password.userNo = MEMBER.user.userNo AND userID = #{userID};
+	</select>
+	
+	<select id="selectSaltBy"></select>
+	
 </mapper>

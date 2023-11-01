@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+				xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
 <title>P2P 로그인</title>
@@ -56,7 +57,7 @@
 	</div>
 
 	<div id="content">
-		<form action="loginOK" method="post">
+		<form action="/loginOK" method="post">
 		
 			<fieldset>
 		
@@ -73,8 +74,12 @@
 				
 				</div>
 
-			
-				<div class="loginBtn d-grid-gap-2">
+				<div th:if="${param.error}">
+					<div class="alert alert-danger">사용자ID 또는 비밀번호를 확인해 주세요.</div>
+				</div>
+
+
+					<div class="loginBtn d-grid-gap-2">
 					<button class="btn btn-primary w-100 py-2" type="submit" id="loginButton">로그인</button>
 				</div>
 				

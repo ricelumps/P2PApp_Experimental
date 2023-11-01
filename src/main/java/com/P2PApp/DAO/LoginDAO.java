@@ -8,5 +8,5 @@ import com.P2PApp.DTO.LoginDTO;
 public interface LoginDAO {
 	
 	LoginDTO selectById(String userID);
-
+	LoginDTO selectByUsername(String userID);
 }

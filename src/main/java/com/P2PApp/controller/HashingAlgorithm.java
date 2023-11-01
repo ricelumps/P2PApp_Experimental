@@ -1,4 +1,4 @@
-package com.P2PApp.controller;
+package com.P2PApp.Controller;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

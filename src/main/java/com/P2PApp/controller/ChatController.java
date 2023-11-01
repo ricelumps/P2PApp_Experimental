@@ -1,4 +1,4 @@
-package com.P2PApp.controller;
+package com.P2PApp.Controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,10 +25,7 @@ public class ChatController {
 		
 		
 		log.info(" @ChatControler, chat GET() ");
-		String userID = (String) session.getAttribute("userID");
-		log.info("userID : {}", userID);
-		model.addAttribute("userID",userID);
-		
+
 		return "/page/chat";
 	}
 	

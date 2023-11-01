@@ -14,7 +14,7 @@
 	 
 	$(document).ready(function(){
 
-         const username = [[${userID}]];
+         const username = [[${session.userID}]];
 
          $("#disconn").on("click", (e) => {
              disconnect();
@@ -83,8 +83,8 @@
             }
              
             else {
-                 var str = "<div class='col-6'>";
-                 str += "<div class='alert alert-warning'>";
+                 var str = "<div class='col-6 align-self-end' align='right'>";
+                 str += "<div class='alert alert-warning' align='right'>";
                  str += "<b>" + sessionId + " : " + message + "</b>";
                  str += "</div></div>";
                  $("#msgArea").append(str);
@@ -96,12 +96,13 @@
 <!-- Content -->
 	<th:block layout:fragment="content">
 		<div class="container">
-			<div class="col-6">
+			<div class="col-3">
 				<label><b>채팅방</b></label>
 			</div>
+			
 			<div>
 				<div id="msgArea" class="col"></div>
-				<div class="col-6">
+				<div class="">
 					<div class="input-group mb-3">
 						<input type="text" id="msg" class="form-control"
 							aria-label="Recipient's username" aria-describedby="button-addon2">

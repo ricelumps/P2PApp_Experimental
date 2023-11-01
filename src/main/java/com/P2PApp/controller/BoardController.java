@@ -1,4 +1,4 @@
-package com.P2PApp.controller;
+package com.P2PApp.Controller;
 
 import java.util.ArrayList;
 
@@ -83,6 +83,7 @@ public class BoardController {
 		
 
 		model.addAttribute("post",postObj);
+		model.addAttribute("userID",(String)session.getAttribute("userID"));
 		
 		return "/page/postview";
 	}
@@ -96,10 +97,10 @@ public class BoardController {
 	
 	@PostMapping("board/Free/writeOK")
 	private String writeOK(FreeboardDTO boardDTO) {
-		String userID = (String)session.getAttribute("loginStatus");
+		
+		
+		String userID = (String)session.getAttribute("userID");
 		boardDTO.setAuthor(userID);
-		
-		
 		
 		FreeboardDAO boardDAO = sqlsession.getMapper(FreeboardDAO.class);
 		int insertFlag = boardDAO.insertPost(boardDTO);
@@ -113,6 +114,11 @@ public class BoardController {
 		
 		log.info("boardID : {} ", boardID);
 		FreeboardDAO boardMapper = sqlsession.getMapper(FreeboardDAO.class);
+		
+		FreeboardDTO postINFO = boardMapper.selectById(boardID);
+		if ( (String)session.getAttribute("userID") != postINFO.getAuthor() ) {
+			return "redirect:/board/Free/" + boardID;
+		}
 		
 		int deleteFlag = boardMapper.deleteById(boardID);
 		

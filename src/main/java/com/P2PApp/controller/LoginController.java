@@ -1,4 +1,4 @@
-package com.P2PApp.controller;
+package com.P2PApp.Controller;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -43,6 +43,7 @@ public class LoginController {
 		return "page/login";
 	}
 	
+	// Spring Security 적용 전 세팅, 사용 안함.
 	@PostMapping("/loginOK")
 	private String loginValidate(LoginDTO loginDTO) throws NoSuchAlgorithmException {
 		
@@ -65,18 +66,12 @@ public class LoginController {
 		if( SelectedValue.getPassword().equals(HashedPassword) ) {
 			session.setAttribute("userID", loginDTO.getUserID());
 			
-			return "redirect:index";
+			return "redirect:/main";
 		} else {
 			return "page/register";
 		}
 		
 	
-	}
-
-	
-	@GetMapping("/register")
-	public String registerForm() {
-		return "page/register";
 	}
 	
 	@GetMapping("/logout")

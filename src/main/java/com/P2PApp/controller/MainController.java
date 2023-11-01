@@ -1,8 +1,10 @@
-package com.P2PApp.controller;
+package com.P2PApp.Controller;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,16 +21,17 @@ public class MainController {
 	@Autowired
 	private HttpSession session;
 	
-	@RequestMapping("/index")
-	private String index() {
+	@RequestMapping("/main")
+	private String index(@AuthenticationPrincipal User user) {
 		
-		if ( session.getAttribute("userID") != null ) {
-			return "page/main";
-			
-		} else {
-			return "redirect:/";
-		}
+		/* Spring Security 적용 전 셋팅 
+		 * if ( session.getAttribute("userID") != null ) { return "page/main";
+		 * 
+		 * } else { return "redirect:/"; }
+		 */
 		
+		session.setAttribute("userID", user.getUsername());
+		return "page/main";
 	}
 	
 	@RequestMapping("/redisTest")

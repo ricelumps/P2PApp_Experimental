@@ -25,10 +25,17 @@
 	<script type="text/javascript">
 	
 	window.onload=function() {
+		
 		var str = document.getElementById("textarea").innerText;
 		console.log(str);
 		str = str.replaceAll("<br/>", "\r\n");
 		document.getElementById("textarea").innerHTML = str;
+		
+		const username = '[[${userID}]]';
+		const post_author = '[[${post.author}]]';
+		if ( username != post_author ) {
+			document.getElementById('button-div').style.display = 'none';
+		}
 	}
 	</script>
 </th:block>
@@ -54,9 +61,11 @@
 				<p id="textarea" th:text="${post.text}"></p>
 			</div>
 			
-			<div class="button-line" align="right">
-				<a class="btn btn-danger" type="submit" href="javascript:deleteOK.submit();">삭제</a>
-				<a class="btn btn-primary" type="button" th:href="@{/board/Free/edit/{boardID} (boardID=${post.boardID})}">수정</a>
+			<div class="button-line" align="right" th:if="{post.author != userID}">
+				<div id="button-div">
+					<button class="btn btn-danger" type="submit" >삭제</button>
+					<button class="btn btn-primary" type="button" th:href="@{/board/Free/edit/{boardID} (boardID=${post.boardID})}">수정</button>
+				</div>
 			</div>
 			
 		</form>
